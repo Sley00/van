@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choisissez une option</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        .button-container {
+            margin-top: 50px;
+        }
+        button {
+            display: block;
+            width: 80%;
+            max-width: 400px;
+            margin: 15px auto;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        /* Couleurs personnalisées pour chaque bouton */
+        .web-btn { background-color: #28a745; }
+        .web-btn:hover { background-color: #218838; }
+
+        .call-btn { background-color: #17a2b8; }
+        .call-btn:hover { background-color: #138496; }
+
+        .whatsapp-btn { background-color: #25d366; }
+        .whatsapp-btn:hover { background-color: #1ebe57; }
+
+        .email-btn { background-color: #ffc107; color: black; }
+        .email-btn:hover { background-color: #e0a800; }
+
+        .gps-btn { background-color: #dc3545; }
+        .gps-btn:hover { background-color: #c82333; }
+
+    </style>
+</head>
+<body>
+    <h1 id="welcome-message">Bienvenue, choisissez une option :</h1>
+    
+    <div class="button-container">
+        <!-- Option 1: Visiter notre page web -->
+        <button class="web-btn" id="visit-web-btn" onclick="window.open('https://www.hi-techcargosolution.com', '_blank')">
+            Visiter notre page web
+        </button>
+
+        <!-- Option 2: Téléphoner nous -->
+        <button class="call-btn" id="call-btn" onclick="window.location.href='tel:+5094637377'">
+            Téléphoner nous
+        </button>
+
+        <!-- Option 3: Écrire nous sur WhatsApp -->
+        <button class="whatsapp-btn" id="whatsapp-btn" onclick="window.location.href='https://wa.me/15176771530'">
+            Écrire nous sur WhatsApp
+        </button>
+
+        <!-- Option 4: Envoyer un email -->
+        <button class="email-btn" id="email-btn" onclick="window.location.href='mailto:jasonklavens96@gmail.com'">
+            Envoyer nous un email
+        </button>
+
+        <!-- Option 5: Rendez-nous visite (GPS) -->
+        <button class="gps-btn" id="visit-us-btn" onclick="window.location.href='https://www.google.com/maps/search/?api=1&query=51+Sauk+Blvd+Coldwater+MI+49036+USA'">
+            Rendez-nous visite
+        </button>
+    </div>
+
+    <script>
+        // Détecter la langue du navigateur
+        var userLang = navigator.language || navigator.userLanguage;
+
+        // Définir les textes en différentes langues
+        var translations = {
+            'en': {
+                'welcome': 'Welcome, choose an option:',
+                'visitWeb': 'Visit our website',
+                'callUs': 'Call us',
+                'whatsappUs': 'Write to us on WhatsApp',
+                'emailUs': 'Send us an email',
+                'visitUs': 'Visit us'
+            },
+            'fr': {
+                'welcome': 'Bienvenue, choisissez une option :',
+                'visitWeb': 'Visiter notre page web',
+                'callUs': 'Téléphoner nous',
+                'whatsappUs': 'Écrire nous sur WhatsApp',
+                'emailUs': 'Envoyer nous un email',
+                'visitUs': 'Rendez-nous visite'
+            },
+            'es': {
+                'welcome': 'Bienvenido, elija una opción:',
+                'visitWeb': 'Visitar nuestra página web',
+                'callUs': 'Llámanos',
+                'whatsappUs': 'Escríbenos en WhatsApp',
+                'emailUs': 'Envíenos un correo electrónico',
+                'visitUs': 'Visítanos'
+            }
+        };
+
+        // Définir la langue par défaut (anglais) si la langue n'est pas trouvée
+        var lang = userLang.substring(0, 2);  // Obtenir les deux premiers caractères (comme "en" ou "fr")
+        if (!translations[lang]) {
+            lang = 'en';  // Si la langue n'est pas supportée, passer à l'anglais par défaut
+        }
+
+        // Appliquer les traductions
+        document.getElementById('welcome-message').textContent = translations[lang].welcome;
+        document.getElementById('visit-web-btn').textContent = translations[lang].visitWeb;
+        document.getElementById('call-btn').textContent = translations[lang].callUs;
+        document.getElementById('whatsapp-btn').textContent = translations[lang].whatsappUs;
+        document.getElementById('email-btn').textContent = translations[lang].emailUs;
+        document.getElementById('visit-us-btn').textContent = translations[lang].visitUs;
+    </script>
+</body>
+</html>
